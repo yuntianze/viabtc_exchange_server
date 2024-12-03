@@ -1,14 +1,9 @@
-/*
- * Description: 
- *     History: yang@haipo.me, 2017/03/17, create
- */
-
 # ifndef _UT_DECIMAL_H_
 # define _UT_DECIMAL_H_
 
 # include <mpdecimal.h>
 # include <jansson.h>
-
+#include <string.h>
 extern mpd_context_t mpd_ctx;
 
 extern mpd_t *mpd_one;

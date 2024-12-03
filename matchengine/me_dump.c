@@ -92,7 +92,7 @@ int dump_orders(MYSQL *conn, const char *table)
     }
     sdsclear(sql);
 
-    sql = sdscatprintf(sql, "CREATE TABLE IF NOT EXISTS `%s` LIKE `slice_order_example`", table);
+    sql = sdscatprintf(sql, "CREATE TABLE IF NOT EXISTS `%s` LIKE `slice_order", table);
     log_trace("exec sql: %s", sql);
     ret = mysql_real_query(conn, sql, sdslen(sql));
     if (ret != 0) {

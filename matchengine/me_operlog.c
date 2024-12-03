@@ -59,30 +59,12 @@ static void on_list_free(void *value)
 
 static void flush_log(void)
 {
-    static sds table_last;
-    if (table_last == NULL) {
-        table_last = sdsempty();
-    }
-
-    time_t now = time(NULL);
-    struct tm *tm = localtime(&now);
-    sds table = sdsempty();
-    table = sdscatprintf(table, "operlog_%04d%02d%02d", 1900 + tm->tm_year, 1 + tm->tm_mon, tm->tm_mday);
-
-    if (sdscmp(table_last, table) != 0) {
-        sds create_table_sql = sdsempty();
-        create_table_sql = sdscatprintf(create_table_sql, "CREATE TABLE IF NOT EXISTS `%s` like `operlog_example`", table);
-        nw_job_add(job, 0, create_table_sql);
-        table_last = sdscpy(table_last, table);
-    }
-
     sds sql = sdsempty();
-    sql = sdscatprintf(sql, "INSERT INTO `%s` (`id`, `time`, `detail`) VALUES ", table);
-    sdsfree(table);
+    sql = sdscatprintf(sql, "INSERT INTO `operlog` (`id`, `time`, `detail`) VALUES ");
 
     size_t count = 0;
-    char buf[10240];
-    list_node *node;
+    char buf[10240] = {0};
+    list_node *node = NULL;
     list_iter *iter = list_get_iterator(list, LIST_START_HEAD);
     while ((node = list_next(iter)) != NULL) {
         struct operlog *log = node->value;

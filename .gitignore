@@ -37,6 +37,7 @@ core*
 *.txt
 *.log
 tags
+.vs*
 
 # Python
 *.pyc
@@ -524,3 +525,7 @@ paket-files/
 *.cap
 
 # End of https://www.gitignore.io/api/c,vim,python,windows,visualstudio
+network/.DS_Store
+.DS_Store
+matchengine/matchengine
+marketprice/marketprice

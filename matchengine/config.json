@@ -5,7 +5,7 @@
         "core_limit": 1000000000
     },
     "log": {
-        "path": "/var/log/trade/matchengine",
+        "path": "./log/trade",
         "flag": "fatal,error,warn,info,debug,trace",
         "num": 10
     },
@@ -25,14 +25,14 @@
     "cli": "tcp@127.0.0.1:7317",
     "db_log": {
         "host": "localhost",
-        "user": "user",
-        "pass": "pass",
+        "user": "root",
+        "pass": "stan@viaBTC",
         "name": "trade_log"
     },
     "db_history": {
         "host": "localhost",
-        "user": "user",
-        "pass": "pass",
+        "user": "root",
+        "pass": "stan@viaBTC",
         "name": "trade_history"
     },
     "assets": [

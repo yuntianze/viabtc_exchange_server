@@ -1,4 +1,6 @@
-CREATE TABLE `slice_balance_example` (
+USE trade_log;
+
+CREATE TABLE `slice_balance` (
     `id`            INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `user_id`       INT UNSIGNED NOT NULL,
     `asset`         VARCHAR(30) NOT NULL,
@@ -6,7 +8,7 @@ CREATE TABLE `slice_balance_example` (
     `balance`       DECIMAL(30,16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `slice_order_example` (
+CREATE TABLE `slice_order` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY,
     `t`             TINYINT UNSIGNED NOT NULL,
     `side`          TINYINT UNSIGNED NOT NULL,
@@ -33,7 +35,7 @@ CREATE TABLE `slice_history` (
     `end_deals_id`  BIGINT UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `operlog_example` (
+CREATE TABLE `operlog` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY,
     `time`          DOUBLE NOT NULL,
     `detail`        TEXT

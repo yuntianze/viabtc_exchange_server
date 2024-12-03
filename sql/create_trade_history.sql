@@ -1,4 +1,6 @@
-CREATE TABLE `balance_history_example` (
+USE trade_history;
+
+CREATE TABLE `balance_history` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `time`          DOUBLE NOT NULL,
     `user_id`       INT UNSIGNED NOT NULL,
@@ -12,7 +14,7 @@ CREATE TABLE `balance_history_example` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- split by user_id
-CREATE TABLE `order_history_example` (
+CREATE TABLE `order_history` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY,
     `create_time`   DOUBLE NOT NULL,
     `finish_time`   DOUBLE NOT NULL,
@@ -32,7 +34,7 @@ CREATE TABLE `order_history_example` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- split by id, aka orer_id
-CREATE TABLE `order_detail_example` (
+CREATE TABLE `order_detail` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY,
     `create_time`   DOUBLE NOT NULL,
     `finish_time`   DOUBLE NOT NULL,
@@ -52,7 +54,7 @@ CREATE TABLE `order_detail_example` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- split by order_id
-CREATE TABLE `deal_history_example` (
+CREATE TABLE `deal_history` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `time`          DOUBLE NOT NULL,
     `user_id`       INT UNSIGNED NOT NULL,
@@ -69,7 +71,7 @@ CREATE TABLE `deal_history_example` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- split by user_id
-CREATE TABLE `user_deal_history_example` (
+CREATE TABLE `user_deal_history` (
     `id`            BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `time`          DOUBLE NOT NULL,
     `user_id`       INT UNSIGNED NOT NULL,

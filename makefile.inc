@@ -1,21 +1,18 @@
-SOURCE  := $(wildcard *.c)
-OBJS    := $(patsubst %.c, %.o, $(SOURCE))
-CC      := gcc
-CFLAGS  := -Wall -Wno-strict-aliasing -Wno-uninitialized -g -rdynamic -std=gnu99
-LFLAGS  := -g -rdynamic
+# Common definitions
+CC := gcc
+AR := ar
 
+# Common flags
+CFLAGS := -Wall -Wno-strict-aliasing -Wno-uninitialized -g -rdynamic
+LFLAGS := -g -rdynamic
 
-.PHONY : all clean install 
+# Default target
+.PHONY: all clean
 
-all : $(TARGET)
+# Default pattern rules
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-clean :
-	rm -rf *.d *.o $(TARGET)
-
-$(TARGET) : $(OBJS)
-	$(CC) $(LFLAGS) -o $@ $(OBJS) $(LIBS)
-.c.o :
-	$(CC) $(CFLAGS) -c -o $@ $< $(INCS)
-
-install :
-
+# Default clean rule (can be overridden)
+clean-default:
+	rm -rf *.o *.a $(TARGET)
