@@ -5,7 +5,7 @@
         "core_limit": 1000000000
     },
     "log": {
-        "path": "/var/log/trade/marketprice",
+        "path": "./log/marketprice",
         "flag": "fatal,error,warn,info,debug,trace",
         "num": 10
     },
